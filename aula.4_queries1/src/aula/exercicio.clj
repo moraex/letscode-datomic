@@ -47,6 +47,7 @@
                              :album/artista [:artist/id 3]}]})
 
 ;; 2 - criar query para listar albuns e seus artistas (uma query para cada)
+<<<<<<< HEAD
 ;; query
 
 (d/q '[:find (pull ?e [*])
@@ -63,6 +64,11 @@
      (d/db conn))
 
 ;; 4 - listar albuns por artista. (bônus
+=======
+;; 3 - criar query para listar albuns e seus artistas (album e o artista em uma só estrutura de mapa)
+;; 4 - criar query para listar um album por nome
+;; 5 - listar albuns por artista. (bônus)
+>>>>>>> 696bf5cd4b3037adb56b1dd7336e4a7127635df9
 
 ;; referência -- https://docs.datomic.com/cloud/query/query-executing.html
 

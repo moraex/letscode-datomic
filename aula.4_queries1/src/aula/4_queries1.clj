@@ -17,16 +17,14 @@
     :db/cardinality :db.cardinality/one}
    {:db/ident :ingredient/name
     :db/valueType :db.type/string
-    :db/cardinality :db.cardinality/one}
-   
+    :db/cardinality :db.cardinality/one} 
    {:db/ident :owner/id
     :db/valueType :db.type/long
     :db/unique :db.unique/identity
     :db/cardinality :db.cardinality/one}
    {:db/ident :owner/name
     :db/valueType :db.type/string
-    :db/cardinality :db.cardinality/one}
-   
+    :db/cardinality :db.cardinality/one} 
    {:db/ident :recipe/id
     :db/valueType :db.type/long
     :db/unique :db.unique/identity
@@ -49,6 +47,7 @@
           {:ingredient/id i
            :ingredient/name (str "ingredient " i)})
         (range 1 31)))
+
 (comment
   (def client (d/client {:server-type :dev-local
                          :system "dev"}))
@@ -59,7 +58,8 @@
 
   (def conn (d/connect client {:db-name "recipes"}))
   (def db (d/db conn))
-  (d/q '[:find ?recipe-id ?recipe-name ?ingredient-name ?owner-name
+  #_{:clj-kondo/ignore [:datalog-syntax]}
+  (d/q '[:fid ?recipe-id ?recipe-name ?ingredient-name ?owner-name
          :keys recipe-id recipe-name ingredient-name owner-name
          :where
          [?recipe :recipe/id ?recipe-id]
